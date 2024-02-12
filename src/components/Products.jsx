@@ -20,52 +20,43 @@ export function Products ({ products }) {
   }
 
   return (
-    <main className='products'>
-      <ul>
-        {products.slice(0, 10).map(product => {
-          const isProductInCart = checkProductInCart(product)
-
-          
-          const handleBuy = async () => {
-            const id = await processPreferenceMP(cart)
-            console.log("id"+id)
-            if (id) {
-              setPreferenceId(id)
-            }
-          } 
-          return (
-            <li key={product.id}>
-              <img
-                src={product.thumbnail}
-                alt={product.title}
-              />
-                 <div>
-              
+    <div class='products grid  grid-cols-3 gap-6'>
+      {products.slice(0, 10).map(product => {
+        const isProductInCart = checkProductInCart(product)      
+        const handleBuy = async () => {
+          const id = await processPreferenceMP(cart)
+          console.log("id"+id)
+          if (id) {
+            setPreferenceId(id)
+          }
+        } 
+        return (
+   
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title">{product.title}</h2>
               </div>
-              <div>
-                <strong>{product.title}</strong> - ${product.price}
-                
+              <div class="card-image">
+                <img class="card-image" src={product.thumbnail} alt={product.title} />
               </div>
-           
-              <div>
-                <button
-                  style={{ backgroundColor: isProductInCart ? 'red' : '#09f' }} onClick={() => {
+              <div class="card-body">
+                <p class="price"><span class="price-discount">{product.price}</span>$20.00</p>
+                <div class="btn-container">
+                  <button class="btn" onClick={() => {
                     isProductInCart
                       ? handleBuy(product)
                       : addToCart(product)
-                  }}
-                >
-                  {
+                  }}>{
                     isProductInCart
                       ? <Wallet  initialization={{preferenceId: preferenceId}} />
                       : <AddToCartIcon />
-                  }
-                </button>
+                  }</button>
+                </div>
+                <div class="floating-heart">&#10084;</div>
               </div>
-            </li>
+            </div>
+     
           )
         })}
-      </ul>
-    </main>
-  )
-}
+     </div>)}
+

@@ -10,3 +10,6 @@
   display: flex;
   gap: 1rem;
 }
+.filters select {
+  background-color: #FFCC70;
+}

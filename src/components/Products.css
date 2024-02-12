@@ -1,47 +1,88 @@
-.products {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+.card {
+    width: 300px;
+    background-color: #FFFFFF; /* Fondo blanco */
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra */
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
 
-.products ul {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(
-      200px,
-      1fr
-    )
-  );
-  gap: 1rem;
-}
+  .card:hover {
+    transform: translateY(-5px); /* Efecto de levitar al hacer hover */
+  }
 
-.products li {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  box-shadow: 0 0 10px 10px rgba(0, 0, 0, .1);
-  border-radius: 4px;
-  background: #111;
-  color: #fff;
-  padding: 1rem;
-}
+  .card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
 
-.products h3 {
-  margin: 0;
-}
+  .card-header {
+    background-color: #FFB5C5; /* Fondo rosa */
+    padding: 16px;
+    text-align: center;
+  }
 
-.products span {
-  font-size: 1rem;
-  opacity: .9;
-}
+  .card-title {
+    margin: 0;
+    font-size: 20px;
+    color: #FFFFFF; /* Texto blanco */
+  }
 
-.products img {
-  border-radius: 4px;
-  width: 100%;
-  aspect-ratio: 16/9;
-  display: block;
-  object-fit: cover;
-  background: #fff;
-}
+  .card-body {
+    padding: 16px;
+  }
+
+  .price {
+    color: #333333; /* Texto negro */
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .price-discount {
+    color: #FF5E78; /* Rosa intenso */
+    text-decoration: line-through;
+    margin-right: 8px;
+  }
+
+  .btn-container {
+    text-align: right; /* Alineación a la derecha */
+  }
+
+  .btn {
+    background-color: #FF5E78; /* Rosa intenso */
+    color: #FFFFFF; /* Texto blanco */
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #FF8AA8; /* Rosa claro */
+  }
+
+  /* Animación cutes */
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .floating-heart {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #FF5E78; /* Rosa intenso */
+    animation: float 1.5s infinite;
+  }

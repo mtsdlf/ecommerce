@@ -2,20 +2,20 @@
   "products":[
      {
         "id":30,
-        "title":"Key Holder",
+        "title":"Oruga Para Enhebrar Con Cubos Y Formas Top Bright",
         "description":"Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality",
-        "price":30,
+        "price":8690,
         "discountPercentage":2.92,
         "rating":4.92,
         "stock":54,
         "brand":"Golden",
         "category":"home-decoration",
-        "thumbnail":"https://i.dummyjson.com/data/products/30/thumbnail.jpg",
+        "thumbnail": "https://www.girodidactico.com/giro_didactico/img_Productos/TPB013_oruga-para-enhebrar_0.jpg",
         "images":[
-           "https://i.dummyjson.com/data/products/30/1.jpg",
-           "https://i.dummyjson.com/data/products/30/2.jpg",
-           "https://i.dummyjson.com/data/products/30/3.jpg",
-           "https://i.dummyjson.com/data/products/30/thumbnail.jpg"
+           "https://www.girodidactico.com/giro_didactico/img_Productos/TPB013_oruga-para-enhebrar_0.jpg",
+           "https://www.girodidactico.com/giro_didactico/img_Productos/TPB013_oruga-para-enhebrar_0.jpg",
+           "https://www.girodidactico.com/giro_didactico/img_Productos/TPB013_oruga-para-enhebrar_0.jpg",
+           "https://www.girodidactico.com/giro_didactico/img_Productos/TPB013_oruga-para-enhebrar_0.jpg"
         ]
      },
      {
