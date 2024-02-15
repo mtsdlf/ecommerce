@@ -1,0 +1,16 @@
+aside {
+  padding-top: 120px;
+  position: fixed;
+  background-color: #01992e;
+  width: 150px; /* Ancho inicial del aside */
+  transition: width 0.3s; /* Transición suave para el cambio de ancho */
+  flex-shrink: 0; /* Evitar que el aside se encoja */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1; /* Asegurar que el aside esté por encima del resto del contenido */
+}
+
+.aside:hover {
+  width: 250px; /* Ancho expandido del aside al pasar el mouse sobre él */
+}

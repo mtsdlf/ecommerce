@@ -1,5 +1,7 @@
 .filters {
-  display: flex;
+  width:100%;
+  z-index: 3;
+  display: block;
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
@@ -7,9 +9,23 @@
 }
 
 .filters > div {
+  margin-bottom: 20px; /* Ajustar el margen inferior para separar los elementos */
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+
 }
+
 .filters select {
   background-color: #FFCC70;
+  position: relative; /* Establecer posición relativa */
+  z-index: 1; /* Asegurar que el select esté por encima de los elementos debajo */
+}
+
+.filters > div > *:not(select) {
+  transition: transform 0.3s; /* Transición suave para el desplazamiento hacia abajo */
+  position: relative; /* Establecer posición relativa */
+}
+
+.filters select:focus + * {
+  transform: translateY(40px); /* Desplazar hacia abajo los elementos debajo del select al enfocarlo */
 }

@@ -79,10 +79,16 @@
   }
 
   .floating-heart {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    position: absolute; 
+    top: 10px;
+    right: 10px;
     font-size: 24px;
-    color: #FF5E78; /* Rosa intenso */
-    animation: float 1.5s infinite;
+    color: #FF6B6B;
+    opacity: 0; /* Lo hacemos invisible por defecto */
+    transition: opacity 0.3s ease; /* Agregamos una transición suave */
+  }
+  
+  /* Estilos para mostrar el corazón flotante cuando se pasa el mouse sobre el producto */
+  .card:hover .floating-heart {
+    opacity: 1; /* Hacemos visible el corazón cuando se pasa el mouse sobre el producto */
   }

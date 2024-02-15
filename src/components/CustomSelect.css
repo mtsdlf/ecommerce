@@ -1,0 +1,37 @@
+.custom-select {
+    position: relative;
+  }
+  
+  .selected-option {
+    background-color: #FFCC70;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .options {
+    position: absolute;
+
+    left: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Asegurar que las opciones estén por encima de otros elementos */
+  }
+  
+  .option {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .option:hover {
+    background-color: #F0F0F0;
+  }
+  
+  .spacer {
+    height: 10px; /* Altura para desplazar elementos debajo del select */
+    width: 100%;
+  }
+  

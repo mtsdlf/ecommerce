@@ -1,7 +1,7 @@
 import { useState } from 'react'  
 import { useCart } from '../hooks/useCart.js'
 import { Wallet, initMercadoPago } from '@mercadopago/sdk-react'
-import { AddToCartIcon, PurchaseNowIcon } from './Icons.jsx'
+import { AddToCartIcon, PurchaseNowIcon, RemoveFromCartIcon } from './Icons.jsx'
 import { processPreferenceMP }  from '../service/proccessPreference.js'
 import './Products.css'      
 
@@ -11,7 +11,6 @@ export function Products ({ products }) {
     locale: "es-AR"
   });
 
-
   const [preferenceId, setPreferenceId] = useState(null)
   const { addToCart, cart } = useCart()
 
@@ -20,42 +19,34 @@ export function Products ({ products }) {
   }
 
   return (
-    <div class='products grid  grid-cols-3 gap-6'>
+    <div className='grid grid-cols-3 gap-4'>
       {products.slice(0, 10).map(product => {
         const isProductInCart = checkProductInCart(product)      
-        const handleBuy = async () => {
-          const id = await processPreferenceMP(cart)
-          console.log("id"+id)
-          if (id) {
-            setPreferenceId(id)
-          }
-        } 
         return (
    
-            <div class="card">
-              <div class="card-header">
-                <h2 class="card-title">{product.title}</h2>
+            <div key={product.id} className="card">
+              <div className="card-header">
+                <h2 className="card-title">{product.title}</h2>
               </div>
-              <div class="card-image">
-                <img class="card-image" src={product.thumbnail} alt={product.title} />
+              <div className="card-image">
+                <img className="card-image" src={product.thumbnail} alt={product.title} />
               </div>
-              <div class="card-body">
-                <p class="price"><span class="price-discount">{product.price}</span>$20.00</p>
-                <div class="btn-container">
-                  <button class="btn" onClick={() => {
+              <div className="card-body">
+                <p className="price"><span className="price-discount">{product.price}</span>$20.00</p>
+                <div className="btn-container">
+                  <button className="btn" onClick={() => {
                     isProductInCart
                       ? handleBuy(product)
                       : addToCart(product)
                   }}>{
                     isProductInCart
-                      ? <Wallet  initialization={{preferenceId: preferenceId}} />
+                      ? <RemoveFromCartIcon />
                       : <AddToCartIcon />
                   }</button>
                 </div>
-                <div class="floating-heart">&#10084;</div>
+                <div className="floating-heart">&#10084;</div>
               </div>
             </div>
-     
           )
         })}
      </div>)}

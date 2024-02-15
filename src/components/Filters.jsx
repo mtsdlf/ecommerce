@@ -1,27 +1,39 @@
 import { useId } from 'react'
+import { CustomSelect } from './CustomSelect.jsx'
 import { useFilters } from '../hooks/useFilters.js'
 import './Filters.css'
+import { CustomInputRange } from './CustomInputRange.jsx';
 
 export function Filters () {
+
+  const options = [
+    { value: 'all', label: 'Todas' },
+    { value: 'laptops', label: 'Portátiles' },
+    { value: 'smartphones', label: 'Celulares' },
+    { value: 'frangances', label: 'Fragancias' },
+    { value: 'skincare', label: 'Skincare' },
+    { value: 'home-decoration', label: 'Deco de interior' },
+    
+
+  ];
+
   const { filters, setFilters } = useFilters()
+  const categoryFilterId= useId(),
+        priceFilterId  = useId()
 
-  const minPriceFilterId = useId()
-  const categoryFilterId = useId()
-
-  const handleChangeMinPrice = (event) => {
+  const handlePriceChange = (prices) => {
+    const { minPrice, maxPrice} = prices
     setFilters(prevState => ({
       ...prevState,
-      minPrice: event.target.value
+      minPrice: minPrice,
+      maxPrice: maxPrice
     }))
   }
 
-  const handleChangeCategory = (event) => {
-    // ⬇️ ESTO HUELE MAL
-    // estamos pasando la función de actualizar estado
-    // nativa de React a un componente hijo
+  const handleCategoryChange = (value) => {
     setFilters(prevState => ({
       ...prevState,
-      category: event.target.value
+      category: value
     }))
   }
 
@@ -29,28 +41,13 @@ export function Filters () {
     <section className='filters'>
 
       <div>
-        <label htmlFor={minPriceFilterId}>Precio a partir de:</label>
-        <input
-          type='range'
-          id={minPriceFilterId}
-          min='0'
-          max='1000'
-          onChange={handleChangeMinPrice}
-          value={filters.minPrice}
-        />
-        <span>${filters.minPrice}</span>
-      </div>
-
-      <div>
         <label htmlFor={categoryFilterId}>Categoría</label>
-        <select id={categoryFilterId} onChange={handleChangeCategory}>
-          <option value='all'>Todas</option>
-          <option value='laptops'>Portátiles</option>
-          <option value='smartphones'>Celulares</option>
-        </select>
+        <CustomSelect className='custom-select' id={categoryFilterId} options={options} onChange={handleCategoryChange} />
       </div>
-
+      <div> 
+        <label htmlFor={priceFilterId}>Precio a partir de:</label>
+        <CustomInputRange onChange={handlePriceChange}/>
+      </div>
     </section>
-
   )
 }

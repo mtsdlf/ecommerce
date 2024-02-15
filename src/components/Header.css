@@ -1,0 +1,27 @@
+/* Estilos del header */
+.header {
+    position: fixed;
+    padding: 20px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: var(--color-primary); 
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1); 
+}
+  .header-title {
+    margin: 0;
+    font-size: 32px;
+    color: var(--color-tertiary); /* Lila suave */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra al texto */
+    letter-spacing: 1px; /* Espaciado entre letras */
+  }
+  
+  .nav-link {
+    color: var(--color-tertiary); /* Lila suave */
+  }
+  
+  .nav-link:hover {
+    transform: translateY(13px); /* Efecto de levitar al hacer hover */
+    color: var(--color-secondary); /* Lila claro */
+  }
